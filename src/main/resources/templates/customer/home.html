@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+hello cus
+
+
+<table>
+    <thead>
+    <th>cuId</th>
+    <th>cuName</th>
+    <th>bth</th>
+    <th>agr</th>
+    <th>aId</th>
+    <th><a th:text="${session.get('username-ss')}"></a></th>
+    </thead>
+    <tbody>
+    <tr th:each="a:${list}">
+        <td th:text="${a.getCuId()}"></td>
+        <td th:text="${a.getCuName()}"></td>
+        <td th:text="${a.getbDay()}"></td>
+        <td th:text="${a.getPhone()}"></td>
+        <td th:text="${a.getaId()}"></td>
+        <td><a th:href="@{/customer/update/{cuId}(cuId=${a.getCuId()})}"> update </a></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

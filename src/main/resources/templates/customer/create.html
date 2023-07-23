@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <h2>Customer</h2>
+    <form th:action="@{/customer/save}" method="post" th:object="${customer}">
+        <input type="text" th:field="*{cuId}" id="cuId" hidden><br>
+        <label for="cuName" >name:</label><br>
+        <input type="text" th:field="*{cuName}" id="cuName"><br>
+        <label for="bDay">bDay:</label><br>
+        <input type="date" th:field="*{bDay}" id="bDay" ><br>
+
+        <label for="phone">phone:</label><br>
+        <input type="text" th:field="*{phone}" id="phone" ><br><br>
+        <label>aid:</label><br>
+        <input type="text" id="aId" th:field="*{aId}">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</table>
+</body>
+</html>

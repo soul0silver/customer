@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+    }
+
+    body {
+
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #000000;
+
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      min-height: 500px;
+      padding: 80px;
+    }
+    div{
+      width: 100%;
+
+
+      border-radius: 10px;
+      flex-direction: column;
+      text-align: center;
+      display: flex;
+    }
+    table{
+
+      border-collapse: collapse;
+    }
+    table,th,td,tbody,thead{
+      border: 0.5px solid black;
+    }
+    td{
+      text-align: center;
+    }
+    a{
+      text-decoration: none;
+      color: green;
+    }
+    .nav {
+      width: 100%;
+
+      outline-width: 0px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin: 0;
+    }
+
+
+
+    .nav ul {
+      align-items: center;
+      text-align: center;
+      list-style-type: none;
+      background: rgb(30, 29, 29);
+      height: 70px;
+      line-height: 70px;
+    }
+
+    .nav ul li {
+      display: inline-table;
+      width: 160px;
+      align-items: center;
+      line-height: 45px;
+      height: 70px;
+    }
+
+    .nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      display: block;
+      cursor: pointer;
+      height: 60px;
+      line-height: 60px;
+      background-color: rgb(30, 29, 29);
+
+    }
+
+    a:hover {
+      color: #ffffff;
+      background-color: #282727;
+
+      outline: 0;
+      text-shadow: 0 0 0.5em rgba(220, 215, 215, 0.986);
+    }
+  </style>
+</head>
+<body>
+<div class="header"  style="width: 100%">
+
+  <div class="nav" style="width: 100%">
+
+    <ul>
+      <li>
+        <a href="./index.html"><p>
+          <h3 style="color: rgba(255, 255, 255, 0.833);margin: 0;padding: 0;">
+            Manager</h3>
+          </p></a>
+      </li>
+
+      <li>
+        <a href="">Orders</a>
+
+      </li>
+      <li>
+        <a href="">Customers</a>
+
+      </li>
+      <li>
+        <a th:href="@{/product/product}">Products</a>
+      </li>
+
+
+    </ul>
+  </div>
+
+</div>
+<h1>Order manager</h1>
+<br>
+<a th:href="@{/student/sign}">Create</a>
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        NAME
+      </th>
+      <th>
+        PHONE NUMBER
+      </th>
+
+      <th>BIRTH DAY</th>
+
+      <th>PROVINCE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="st: ${student}">
+      <td th:text="${st.sId}"></td>
+      <td th:text="${st.getName()}"></td>
+      <td th:text="${st.getPhone()}"></td>
+
+      <td th:text="${st.getBirthDay()}"></td>
+      <td th:text="${st.province}"></td>
+      <td><a th:href="@{/student/update/{id}(id=${st.sId})}">update</a><br/><hr/>
+      <a th:href="@{/student/delete/{id}(id=${st.sId})}">delete</a>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
